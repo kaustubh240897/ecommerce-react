@@ -1,0 +1,112 @@
+/* @import url("@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap');"); */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body,
+p {
+  color: #454546;
+  font-family: "Arial", sans-serif;
+}
+/* h1, h2, h3, h4, h5, h6{font-weight: 600 !important;} */
+a {
+  cursor: pointer;
+}
+.add-card {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 3rem;
+}
+
+.add-card span {
+  font-size: 1rem;
+}
+.price-div {
+  width: 100%;
+  border-radius: 10px;
+  padding: 1rem 3rem;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem auto;
+  box-shadow: 0.4rem 0.4rem 0.6rem #00000040;
+}
+.price-div h5 {
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+.price-div h6 {
+  color: #8d8d8d;
+  font-weight: 600;
+  font-size: 1rem;
+}
+.payment-card {
+  margin: 3rem 10rem;
+  padding: 2rem 4rem;
+  border-radius: 10px;
+  background-color: #8e43ed;
+  box-shadow: 0.4rem 0.4rem 0.6rem #00000040;
+  color: #fff;
+}
+.payment-card h1 {
+  color: cornsilk;
+  margin-bottom: 2rem;
+}
+.payment-card p {
+  color: #fff;
+  margin: 0.5rem 0;
+}
+
+.total-pay {
+  background-color: #50a2ff;
+  padding: 1rem 10rem;
+}
+
+.order {
+  display: flex;
+  justify-content: space-between;
+}
+.delivery {
+  display: flex;
+  justify-content: space-between;
+}
+
+.summary {
+  display: flex;
+  justify-content: space-between;
+}
+
+.order p,
+.summary p,
+.delivery p {
+  color: #fff;
+}
+
+.card-name {
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  display: flex;
+  margin: 2rem auto;
+  color: #fff;
+  padding: 0.7em 1.7em;
+  font-size: 18px;
+  border-radius: 0.5em;
+  background: #8e43ed;
+  border: 1px solid #8e43ed;
+  transition: all 0.3s;
+  box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+}
+
+button:hover {
+  border: 1px solid white;
+}
+
+button:active {
+  box-shadow: 4px 4px 12px #c5c5c5, -4px -4px 12px #ffffff;
+}
