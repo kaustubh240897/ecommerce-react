@@ -1,28 +1,35 @@
-import { ADD_PRODUCT, CHECKOUT, GET_PRODUCTS } from "../actions/actionTypes";
-const data = require("../../data/data.json");
+import { STORE_CATEGORIES, STORE_PRODUCT, UPDATE_PAGE } from '../actions/actionTypes';
 
 let initialState = {
   products: [],
-  cartData: [],
+  total: 0,
+  limit: 10,
+  currentPage: 0,
+  categories: [],
 };
 
 const productReducer = (state = initialState, action) => {
   switch (action.type) {
-    case ADD_PRODUCT:
+    case STORE_PRODUCT:
       return {
         ...state,
-        cartData: [...state.cartData, action.payload],
+        products: action.payload.products,
+        total: action.payload.total,
+        limit: action.payload.limit,
       };
-    case GET_PRODUCTS:
+
+    case UPDATE_PAGE:
       return {
         ...state,
-        products: data,
+        currentPage: action.page,
       };
-    case CHECKOUT:
+
+      case STORE_CATEGORIES:
       return {
         ...state,
-        cartData: [],
+        categories: action.payload,
       };
+
     default:
       return state;
   }
