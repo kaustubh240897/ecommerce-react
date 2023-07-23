@@ -13,6 +13,7 @@ const useStyles = makeStyles((theme) => ({
     margin: "1rem 0",
     display: "flex",
     justifyContent: "center",
+    alignItems: "center"
   },
 }));
 
@@ -31,17 +32,18 @@ const ProductList = (props) => {
   }
 
   return (
-    <>
-        <SearchBar searchProducts={props.searchProducts} />
+    products.length > 0 ?
+      <>
         <Grid container alignItems="center">
+          <SearchBar searchProducts={props.searchProducts} />
           <Grid item xs={6}>
-        <Typography component='h1' variant='h3' className={classes.pagination}>
-          Products 
-        </Typography>
-        </Grid>
-        <Grid item xs={6}>
-          <Link onClick={()=> navigate('/categories')} >See All Categories...</Link>
-        </Grid>
+            <Typography component='h4' variant='h4' className={classes.pagination}>
+              Products
+            </Typography>
+          </Grid>
+          <Grid item xs={6}>
+            <Link onClick={() => navigate('/categories')} sx={{ display: "flex", justifyContent: "space-around" }} >See All Categories...</Link>
+          </Grid>
         </Grid>
 
         <Product products={products} />
@@ -56,10 +58,13 @@ const ProductList = (props) => {
             />
           )}
         </div>
+
       </>
-    
-      
-   
+      :
+      <Typography component='h4' variant='h4' sx={{ display: "flex" , justifyContent:"center", marginTop:"25%"}}>Loading...</Typography>
+
+
+
   );
 };
 

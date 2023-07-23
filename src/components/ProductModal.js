@@ -2,6 +2,7 @@ import * as React from "react";
 import Dialog from "@mui/material/Dialog";
 import Carousel from "../core/Carousel";
 import { makeStyles } from "@mui/styles";
+import { Typography } from "@mui/material";
 
 const useStyles = makeStyles((theme) => ({
   productContent: {
@@ -34,6 +35,13 @@ export default function ProductModal({ open, handleClose, product }) {
             </div>
           ))}
         </Carousel>
+        <Typography className="container" sx={{ margin: "10px 0px 10px 20px" }}>
+          <h3>
+          &#8377; {product.price}</h3>
+          <h3>{product.title}</h3>  
+          <h4>{product.category}</h4>
+          <p>{product.description}</p>
+          </Typography>
       </Dialog>
     </div>
   );

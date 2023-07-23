@@ -34,16 +34,17 @@ const FilterCategory = (props) => {
   }
 
   return (
+    products.length > 0 ?
     <>
         <SearchBar searchProducts={props.searchProducts} />
         <Grid container alignItems="center">
           <Grid item xs={6}>
         <Typography component='h5' variant='h5' className={classes.pagination}>
-        Category: {categoryName[2]}
+        <div><Link onClick={()=> navigate('/')} sx={{ marginLeft:"10px"}}  > Home </Link> / Category: {categoryName[2]}</div>
         </Typography>
         </Grid>
         <Grid item xs={6}>
-          <Link onClick={()=> navigate('/categories')} >See All Categories...</Link>
+          <Link onClick={()=> navigate('/categories')} sx={{display: "flex", justifyContent:"space-around"}}  >See All Categories...</Link>
         </Grid>
         </Grid>
 
@@ -60,8 +61,8 @@ const FilterCategory = (props) => {
           )}
         </div>
       </>
-    
-      
+      :
+      <Typography component='h4' variant='h4' sx={{ display: "flex" , justifyContent:"center", marginTop:"25%"}}>Loading...</Typography>   
    
   );
 };
