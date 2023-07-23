@@ -1,3 +1,3 @@
-export const GET_PRODUCTS = "TEST/GET_PRODUCTS";
-export const ADD_PRODUCT = "TEST/ADD_PRODUCT";
-export const CHECKOUT = "TEST/CHECKOUT";
+export const GET_PRODUCTS = 'TEST/GET_PRODUCTS';
+export const STORE_PRODUCT = 'TEST/STORE_PRODUCT';
+export const UPDATE_PAGE = 'TEST/UPDATE_PAGE';

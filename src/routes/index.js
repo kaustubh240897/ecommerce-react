@@ -1,14 +1,12 @@
-import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Checkout from "../components/Checkout";
-import Landing from "../components/Landing";
+import React from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import ProductList from '../components/ProductList';
 
 const RoutesCom = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Landing />} />
-        <Route path="checkout" element={<Checkout />} />
+        <Route path='/' element={<ProductList />} />
       </Routes>
     </BrowserRouter>
   );

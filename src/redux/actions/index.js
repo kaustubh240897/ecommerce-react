@@ -1,20 +1,22 @@
-import { ADD_PRODUCT, CHECKOUT, GET_PRODUCTS } from "./actionTypes";
+import { STORE_PRODUCT, GET_PRODUCTS, UPDATE_PAGE } from './actionTypes';
 
-export const addProduct = (product) => {
+export const storeProducts = (products) => {
   return {
-    type: ADD_PRODUCT,
-    payload: product,
+    type: STORE_PRODUCT,
+    payload: products,
   };
 };
 
-export const getProducts = () => {
+export const getProducts = (req) => {
   return {
     type: GET_PRODUCTS,
+    req,
   };
 };
 
-export const checkout = () => {
+export const updatePage = (page) => {
   return {
-    type: CHECKOUT,
+    type: UPDATE_PAGE,
+    page,
   };
 };
