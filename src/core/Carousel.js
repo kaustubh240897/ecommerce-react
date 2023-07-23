@@ -1,48 +1,50 @@
-import React, { useState, useEffect } from 'react';
-import { IconButton } from '@mui/material';
-import { makeStyles } from '@mui/styles';
-import { ChevronLeftOutlined, ChevronRightOutlined } from '@mui/icons-material';
+import React, { useState, useEffect } from "react";
+import { IconButton } from "@mui/material";
+import { makeStyles } from "@mui/styles";
+import { ChevronLeftOutlined, ChevronRightOutlined } from "@mui/icons-material";
 
 const useStyles = makeStyles(() => ({
   carouselContainer: {
-    width: '100%',
-    display: 'flex',
-    flexDirection: 'column',
+    width: "100%",
+    display: "flex",
+    flexDirection: "column",
   },
   carouselWrapper: {
-    display: 'flex',
-    width: '100%',
-    position: 'relative',
-    alignItems: 'center',
+    display: "flex",
+    width: "100%",
+    position: "relative",
+    alignItems: "center",
   },
   carouselContentWrapper: {
-    overflow: 'hidden',
-    width: '100%',
-    height: '100%',
+    overflow: "hidden",
+    width: "100%",
+    height: "100%",
   },
   carouselContent: {
-    display: 'flex',
-    transition: 'all 250ms linear',
-    '-ms-overflow-style': 'none' /* hide scrollbar in IE and Edge */,
-    'scrollbar-width': 'none' /* hide scrollbar in Firefox */,
-    '&::-webkit-scrollbar, &::-webkit-scrollbar': {
-      display: 'none',
+    display: "flex",
+    transition: "all 250ms linear",
+    "-ms-overflow-style": "none" /* hide scrollbar in IE and Edge */,
+    "scrollbar-width": "none" /* hide scrollbar in Firefox */,
+    "&::-webkit-scrollbar, &::-webkit-scrollbar": {
+      display: "none",
     },
-    '& > *': {
-      width: '100%',
+    "& > *": {
+      width: "100%",
       flexShrink: 0,
       flexGrow: 1,
     },
   },
   leftArrow: {
     padding: 0,
-    width: '48px',
-    height: '48px',
+    width: "48px",
+    height: "48px",
+    margin: "1rem",
   },
   rightArrow: {
     padding: 0,
-    width: '48px',
-    height: '48px',
+    width: "48px",
+    height: "48px",
+    margin: "1rem",
   },
 }));
 
@@ -53,6 +55,8 @@ const Carousel = (props) => {
   const [length, setLength] = useState(children.length);
   const [touchPosition, setTouchPosition] = useState(null);
   const maxChildren = children.length > show ? show : children.length;
+
+  console.log("chid", children);
   // Set the length to match current children from props
   useEffect(() => {
     setLength(children.length);

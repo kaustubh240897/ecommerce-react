@@ -7,11 +7,12 @@ import Product from './Product';
 import { getProducts, updatePage, searchProducts } from '../redux/actions';
 import SearchBar from '../core/SearchBar';
 import { useNavigate } from 'react-router-dom';
+
 const useStyles = makeStyles((theme) => ({
   pagination: {
-    margin: '1rem 0',
-    display: 'flex',
-    justifyContent: 'center',
+    margin: "1rem 0",
+    display: "flex",
+    justifyContent: "center",
   },
 }));
 
@@ -34,7 +35,7 @@ const ProductList = (props) => {
         <SearchBar searchProducts={props.searchProducts} />
         <Grid container alignItems="center">
           <Grid item xs={6}>
-        <Typography component='h1' variant='h3'>
+        <Typography component='h1' variant='h3' className={classes.pagination}>
           Products 
         </Typography>
         </Grid>
@@ -56,6 +57,9 @@ const ProductList = (props) => {
           )}
         </div>
       </>
+    
+      
+   
   );
 };
 
