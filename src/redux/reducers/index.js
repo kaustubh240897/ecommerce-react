@@ -1,4 +1,4 @@
-import { STORE_CATEGORIES, STORE_PRODUCT, UPDATE_PAGE } from '../actions/actionTypes';
+import { STORE_CATEGORIES, STORE_PRODUCT, UPDATE_PAGE, STORE_FILTER_CATEGORY } from '../actions/actionTypes';
 
 let initialState = {
   products: [],
@@ -28,6 +28,13 @@ const productReducer = (state = initialState, action) => {
       return {
         ...state,
         categories: action.payload,
+      };
+      case STORE_FILTER_CATEGORY:
+      return {
+        ...state,
+        products: action.payload.products,
+        total: action.payload.total,
+        limit: action.payload.limit,
       };
 
     default:

@@ -1,4 +1,4 @@
-import { STORE_PRODUCT, GET_PRODUCTS, UPDATE_PAGE, SEARCH_PRODUCTS, FETCH_CATEGORIES, STORE_CATEGORIES } from './actionTypes';
+import { STORE_PRODUCT, GET_PRODUCTS, UPDATE_PAGE, SEARCH_PRODUCTS, FETCH_CATEGORIES, STORE_CATEGORIES, FILTER_CATEGORY, STORE_FILTER_CATEGORY } from './actionTypes';
 
 export const storeProducts = (products) => {
   return {
@@ -37,6 +37,19 @@ export const storeCategories = (categories) => {
   return {
     type: STORE_CATEGORIES,
     payload: categories,
+  };
+};
+
+export const filterCategory = (req) => {
+  return {
+    type: FILTER_CATEGORY,
+    req,
+  };
+};
+export const storeFilterCategory = (products) => {
+  return {
+    type: STORE_FILTER_CATEGORY,
+    payload: products,
   };
 };
 

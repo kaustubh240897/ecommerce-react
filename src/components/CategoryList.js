@@ -6,6 +6,7 @@ import { makeStyles } from '@mui/styles';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import MainContainer from '../core/Layout';
 import { fetchCategories } from '../redux/actions';
+import { useNavigate } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
 //   pagination: {
@@ -17,6 +18,7 @@ const useStyles = makeStyles((theme) => ({
 
 const CategoryList = (props) => {
     const { categories} = props;
+    const navigate = useNavigate();
   
 
   useEffect(() => {
@@ -33,7 +35,7 @@ const CategoryList = (props) => {
         <Grid item md={2.4}>
 
             <Typography>
-               {category}
+            <Link onClick={()=> navigate(`/category/${category}`)} > {category} </Link>
             </Typography>
 
 
