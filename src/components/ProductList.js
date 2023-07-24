@@ -1,19 +1,46 @@
-import React, { useEffect } from 'react';
-import { Pagination, Typography, Link, Grid } from '@mui/material';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { makeStyles } from '@mui/styles';
-import Product from './Product';
-import { getProducts, updatePage, searchProducts } from '../redux/actions';
-import SearchBar from '../core/SearchBar';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect } from "react";
+import { Pagination, Typography, Link, Grid, Chip } from "@mui/material";
+import CategoryIcon from "@mui/icons-material/Category";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { makeStyles } from "@mui/styles";
+import Product from "./Product";
+import { getProducts, updatePage, searchProducts } from "../redux/actions";
+import SearchBar from "../core/SearchBar";
+import { useNavigate } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
+  grid: {
+    width: "100%",
+    padding: "0 12rem",
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  innerGrid: {
+    width: "100%",
+  },
+
+  titleText: {
+    margin: "1rem 0",
+    color: "#4134a3",
+    fontWeight: "bold",
+  },
   pagination: {
     margin: "1rem 0",
     display: "flex",
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+  },
+
+  [theme.breakpoints.down("sm")]: {
+    grid: {
+      width: "100%",
+      padding: "0 1rem",
+    },
+    innerGrid: {
+      width: "100%",
+    },
   },
 }));
 
@@ -31,40 +58,56 @@ const ProductList = (props) => {
     props.updatePage(newPage);
   }
 
-  return (
-    products.length > 0 ?
-      <>
-        <Grid container alignItems="center">
+  return products.length > 0 ? (
+    <>
+      <Grid container className={classes.grid}>
+        <Grid item className={classes.innerGrid}>
           <SearchBar searchProducts={props.searchProducts} />
-          <Grid item xs={6}>
-            <Typography component='h4' variant='h4' className={classes.pagination}>
-              Products
-            </Typography>
-          </Grid>
-          <Grid item xs={6}>
-            <Link onClick={() => navigate('/categories')} sx={{ display: "flex", justifyContent: "space-around" }} >See All Categories...</Link>
-          </Grid>
         </Grid>
-
-        <Product products={products} />
-        <div className={classes.pagination}>
-          {console.log('currentPage', currentPage)}
-          {products.length > 0 && total > limit && (
-            <Pagination
-              count={parseInt(total / limit)}
-              shape='rounded'
-              page={currentPage}
-              onChange={handleChangePagination}
+        <Grid item>
+          <Typography component="h4" variant="h4" className={classes.titleText}>
+            Products
+          </Typography>
+        </Grid>
+        <Grid item>
+          <Link
+            onClick={() => navigate("/categories")}
+            sx={{
+              display: "flex",
+              justifyContent: "space-around",
+              textDecoration: "none",
+            }}
+          >
+            <Chip
+              style={{ cursor: "pointer" }}
+              icon={<CategoryIcon />}
+              label="All Categories"
             />
-          )}
-        </div>
+          </Link>
+        </Grid>
+      </Grid>
 
-      </>
-      :
-      <Typography component='h4' variant='h4' sx={{ display: "flex" , justifyContent:"center", marginTop:"25%"}}>Loading...</Typography>
-
-
-
+      <Product products={products} />
+      <div className={classes.pagination}>
+        {console.log("currentPage", currentPage)}
+        {products.length > 0 && total > limit && (
+          <Pagination
+            count={parseInt(total / limit)}
+            shape="rounded"
+            page={currentPage}
+            onChange={handleChangePagination}
+          />
+        )}
+      </div>
+    </>
+  ) : (
+    <Typography
+      component="h4"
+      variant="h4"
+      sx={{ display: "flex", justifyContent: "center", marginTop: "25%" }}
+    >
+      Loading...
+    </Typography>
   );
 };
 
@@ -80,7 +123,6 @@ const mapDispatchToProps = (dispatch) => {
     getProducts: (req) => dispatch(getProducts(req)),
     updatePage: (page) => dispatch(updatePage(page)),
     searchProducts: (req) => dispatch(searchProducts(req)),
-
   };
 };
 

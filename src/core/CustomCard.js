@@ -14,6 +14,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "10px",
     cursor: "pointer",
   },
+
   productImage: {
     height: "200px",
   },
@@ -40,6 +41,22 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "10px",
     fontWeight: "bold",
     color: "#4134a3",
+  },
+  [theme.breakpoints.down("sm")]: {
+    productCard: {
+      padding: "12px",
+    },
+
+    productImage: {
+      height: "100px",
+    },
+    textMargin: {
+      margin: "4px 0",
+    },
+
+    categoryText: {
+      marginTop: "5px",
+    },
   },
 }));
 

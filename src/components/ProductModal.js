@@ -36,12 +36,11 @@ export default function ProductModal({ open, handleClose, product }) {
           ))}
         </Carousel>
         <Typography className="container" sx={{ margin: "10px 0px 10px 20px" }}>
-          <h3>
-          &#8377; {product.price}</h3>
-          <h3>{product.title}</h3>  
+          <h3>&#8377; {product.price}</h3>
+          <h3>{product.title}</h3>
           <h4>{product.category}</h4>
           <p>{product.description}</p>
-          </Typography>
+        </Typography>
       </Dialog>
     </div>
   );

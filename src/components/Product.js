@@ -9,8 +9,10 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "center",
   },
-  innergrid: {
-    padding: "10px",
+  [theme.breakpoints.down("sm")]: {
+    grid: {
+      padding: "0 10px",
+    },
   },
 }));
 
@@ -19,9 +21,9 @@ function Product(props) {
   const { products } = props;
 
   return (
-    <Grid container className={classes.grid}>
+    <Grid container spacing={2} className={classes.grid}>
       {products.map((product) => (
-        <Grid key={product.id} className={classes.innergrid} item md={2.4}>
+        <Grid key={product.id} item md={2.4} xs={6}>
           <CustomCard product={product} />
         </Grid>
       ))}
