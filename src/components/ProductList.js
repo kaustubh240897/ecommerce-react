@@ -100,15 +100,26 @@ const ProductList = (props) => {
         )}
       </div>
     </>
-  ) : (
-    <Typography
-      component="h4"
-      variant="h4"
-      sx={{ display: "flex", justifyContent: "center", marginTop: "25%" }}
-    >
-      Loading...
-    </Typography>
-  );
+  ) :
+    limit === 0 ?
+      (<Typography
+        component="h4"
+        variant="h4"
+        sx={{ display: "flex", justifyContent: "center", marginTop: "25%" }}
+      >
+        Sorry There is no product...
+      </Typography>)
+      :
+
+      (
+        <Typography
+          component="h4"
+          variant="h4"
+          sx={{ display: "flex", justifyContent: "center", marginTop: "25%" }}
+        >
+          Loading...
+        </Typography>
+      );
 };
 
 ProductList.propTypes = {
